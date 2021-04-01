@@ -4,15 +4,17 @@ class ImageOptimizer
   private
 
     def command_options
-      flags = ['--skip-if-larger', '--speed 1',
-               '--force', '--verbose', '--ext .png']
-      flags << quantity
+      flags = ['--skip-if-larger', '--speed=1',
+               '--force', '--verbose', '--ext=.png']
+
+      flags -= ['--verbose'] if quiet?
+      flags << quality
       flags << path
     end
 
-    def quantity
-      return "--quality 100" unless (0..100).include?(options[:quality])
-      "--quality #{options[:quality]}"
+    def quality
+      return "--quality=100" unless (0..100).include?(options[:quality])
+      "--quality=#{options[:quality]}"
     end
 
     def extensions

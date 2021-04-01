@@ -4,14 +4,10 @@ This gem allows you to simply optimize images via jpegoptim or OptiPNG.
 
 Tested against ruby 2.0.x, 2.1.x, 2.2.x, 2.3.x, and ruby-head
 
-[![Build Status](https://secure.travis-ci.org/jtescher/image_optimizer.png)]
-(http://travis-ci.org/jtescher/image_optimizer)
-[![Dependency Status](https://gemnasium.com/jtescher/image_optimizer.png)]
-(https://gemnasium.com/jtescher/image_optimizer)
-[![Code Climate](https://codeclimate.com/github/jtescher/image_optimizer.png)]
-(https://codeclimate.com/github/jtescher/image_optimizer)
-[![Coverage Status](https://coveralls.io/repos/jtescher/image_optimizer/badge.png)]
-(https://coveralls.io/r/jtescher/image_optimizer)
+[![Build Status](https://secure.travis-ci.org/jtescher/image_optimizer.png)](http://travis-ci.org/jtescher/image_optimizer)
+[![Dependency Status](https://gemnasium.com/jtescher/image_optimizer.png)](https://gemnasium.com/jtescher/image_optimizer)
+[![Maintainability](https://api.codeclimate.com/v1/badges/31aa4c1b98a4c31433a3/maintainability)](https://codeclimate.com/github/jtescher/image_optimizer/maintainability)
+[![Coverage Status](https://coveralls.io/repos/jtescher/image_optimizer/badge.png)](https://coveralls.io/r/jtescher/image_optimizer)
 [![Gem Version](https://badge.fury.io/rb/image_optimizer.png)](http://badge.fury.io/rb/image_optimizer)
 
 ## Installation
@@ -40,7 +36,7 @@ And then execute:
 
 ```bash
 $ bundle
-```   
+```
 
 Or install it yourself as:
 ```bash
@@ -62,7 +58,7 @@ Pngquant is a command-line utility and a library for lossy compression of PNG im
 The conversion reduces file sizes significantly (often as much as 70%) and preserves full alpha transparency. Generated images are compatible with all modern web browsers, and have better fallback in IE6 than 24-bit PNGs.
 
 ```ruby
-PNGQuantOptimizer.new('path/to/file.png').optimize
+ImageOptimizer::PNGQuantOptimizer.new('path/to/file.png').optimize
 ```
 
 #### Optimize JPEG formats:
@@ -91,6 +87,12 @@ Default is false.
 
 ```ruby
 ImageOptimizer.new('path/to/file.jpg', quiet: true).optimize
+```
+
+You can also enable quiet mode globally:
+
+```ruby
+ImageOptimizer.quiet = true
 ```
 
 ##### Lossy JPEG optimization
